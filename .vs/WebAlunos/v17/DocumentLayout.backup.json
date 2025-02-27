@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\pinto\\source\\repos\\webalunos\\webalunos\\models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\pinto\\source\\repos\\webalunos\\webalunos\\models\\conexaobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\models\\conexaobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -35,6 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Utilizador.cs",
+              "DocumentMoniker": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Utilizador.cs",
+              "RelativeDocumentMoniker": "WebAlunos\\Models\\Utilizador.cs",
+              "ToolTip": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Utilizador.cs",
+              "RelativeToolTip": "WebAlunos\\Models\\Utilizador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T09:15:38.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ConexaoBD.cs",
               "DocumentMoniker": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\WebAlunos\\Models\\ConexaoBD.cs",
               "RelativeDocumentMoniker": "WebAlunos\\Models\\ConexaoBD.cs",
