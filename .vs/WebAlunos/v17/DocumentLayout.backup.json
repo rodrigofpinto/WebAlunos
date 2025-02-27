@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\",
+  "WorkspaceRootPath": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\pinto\\source\\repos\\webalunos\\webalunos\\models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\gon\u00E7alo sousa\\source\\repos\\webalunos\\webalunos\\views\\aluno\\criaaluno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\views\\aluno\\criaaluno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\pinto\\source\\repos\\webalunos\\webalunos\\models\\conexaobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\models\\conexaobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\gon\u00E7alo sousa\\source\\repos\\webalunos\\webalunos\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,28 +38,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Utilizador.cs",
-              "DocumentMoniker": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Utilizador.cs",
-              "RelativeDocumentMoniker": "WebAlunos\\Models\\Utilizador.cs",
-              "ToolTip": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Utilizador.cs",
-              "RelativeToolTip": "WebAlunos\\Models\\Utilizador.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Aluno.cs",
+              "DocumentMoniker": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Aluno.cs",
+              "RelativeDocumentMoniker": "WebAlunos\\Models\\Aluno.cs",
+              "ToolTip": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Aluno.cs",
+              "RelativeToolTip": "WebAlunos\\Models\\Aluno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T09:15:38.609Z",
+              "WhenOpened": "2025-02-27T15:29:57.694Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConexaoBD.cs",
-              "DocumentMoniker": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\WebAlunos\\Models\\ConexaoBD.cs",
-              "RelativeDocumentMoniker": "WebAlunos\\Models\\ConexaoBD.cs",
-              "ToolTip": "C:\\Users\\pinto\\source\\repos\\WebAlunos\\WebAlunos\\Models\\ConexaoBD.cs",
-              "RelativeToolTip": "WebAlunos\\Models\\ConexaoBD.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T15:41:42.632Z",
+              "DocumentIndex": 0,
+              "Title": "CriaAluno.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\Views\\Aluno\\CriaAluno.cshtml",
+              "RelativeDocumentMoniker": "WebAlunos\\Views\\Aluno\\CriaAluno.cshtml",
+              "ToolTip": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\Views\\Aluno\\CriaAluno.cshtml",
+              "RelativeToolTip": "WebAlunos\\Views\\Aluno\\CriaAluno.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-27T15:28:36.057Z",
               "EditorCaption": ""
             }
           ]

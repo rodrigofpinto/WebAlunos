@@ -98,12 +98,18 @@
     </Compile>
     <Compile Include="Models\Aluno.cs" />
     <Compile Include="Models\ConexaoBD.cs" />
+    <Compile Include="Models\Sexo.cs" />
     <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Views\Aluno\ListaAluno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="Views\Aluno\CriaAluno.cshtml" />
+    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\Registro.cshtml" />
+    <Content Include="Views\Aluno\DetalheAluno.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

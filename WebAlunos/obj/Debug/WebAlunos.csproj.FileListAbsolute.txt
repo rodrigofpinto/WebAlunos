@@ -70,3 +70,7 @@ C:\Users\pinto\source\repos\WebAlunos\WebAlunos\obj\Debug\WebAlunos.csproj.CoreC
 C:\Users\pinto\source\repos\WebAlunos\WebAlunos\obj\Debug\WebAlunos.csproj.Up2Date
 C:\Users\pinto\source\repos\WebAlunos\WebAlunos\obj\Debug\WebAlunos.dll
 C:\Users\pinto\source\repos\WebAlunos\WebAlunos\obj\Debug\WebAlunos.pdb
+C:\Users\Gonçalo Sousa\Source\Repos\WebAlunos\WebAlunos\obj\Debug\WebAlunos.csproj.AssemblyReference.cache
+C:\Users\Gonçalo Sousa\Source\Repos\WebAlunos\WebAlunos\obj\Debug\WebAlunos.csproj.CoreCompileInputs.cache
+C:\Users\Gonçalo Sousa\Source\Repos\WebAlunos\WebAlunos\obj\Debug\WebAlunos.dll
+C:\Users\Gonçalo Sousa\Source\Repos\WebAlunos\WebAlunos\obj\Debug\WebAlunos.pdb
