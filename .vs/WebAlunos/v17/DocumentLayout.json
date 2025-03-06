@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\gon\u00E7alo sousa\\source\\repos\\webalunos\\webalunos\\app_start\\alunocontroler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\app_start\\alunocontroler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\gon\u00E7alo sousa\\source\\repos\\webalunos\\webalunos\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|c:\\users\\gon\u00E7alo sousa\\source\\repos\\webalunos\\webalunos\\models\\sexo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05A97E6D-E37B-4E9F-B64D-C78CD2E9DBDC}|WebAlunos\\WebAlunos.csproj|solutionrelative:webalunos\\models\\sexo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +39,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Sexo.cs",
+              "DocumentMoniker": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Sexo.cs",
+              "RelativeDocumentMoniker": "WebAlunos\\Models\\Sexo.cs",
+              "ToolTip": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Sexo.cs",
+              "RelativeToolTip": "WebAlunos\\Models\\Sexo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T15:19:34.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AlunoControler.cs",
+              "DocumentMoniker": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\App_Start\\AlunoControler.cs",
+              "RelativeDocumentMoniker": "WebAlunos\\App_Start\\AlunoControler.cs",
+              "ToolTip": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\App_Start\\AlunoControler.cs",
+              "RelativeToolTip": "WebAlunos\\App_Start\\AlunoControler.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAwwHYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T15:17:51.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Aluno.cs",
+              "DocumentMoniker": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Aluno.cs",
+              "RelativeDocumentMoniker": "WebAlunos\\Models\\Aluno.cs",
+              "ToolTip": "C:\\Users\\Gon\u00E7alo Sousa\\source\\repos\\WebAlunos\\WebAlunos\\Models\\Aluno.cs",
+              "RelativeToolTip": "WebAlunos\\Models\\Aluno.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwB4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T15:16:59.763Z",
+              "EditorCaption": ""
             }
           ]
         }

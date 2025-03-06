@@ -8,7 +8,6 @@ namespace WebAlunosMVC.Models
     public enum Sexo
     {
         Masculino,
-        Feminino, 
-        Outro
+        Feminino
     }
 }   

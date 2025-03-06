@@ -8,7 +8,7 @@ namespace WebAlunos.Models
     {
         [Required]
         [Display(Name = "Número de aluno")]
-        public int NAlunos { get; set; }
+        public int NAluno { get; set; }
 
         [Required]
         [Display(Name = "Primeiro Nome")]
@@ -19,7 +19,7 @@ namespace WebAlunos.Models
         public string UltimoNome { get; set; }
 
         [Required]
-        public string MoradaNome { get; set; }
+        public string Morada { get; set; }
 
         [Required]
         public Sexo Sexo { get; set; }
