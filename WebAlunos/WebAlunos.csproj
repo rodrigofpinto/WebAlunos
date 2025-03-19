@@ -104,6 +104,7 @@
     <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Views\Aluno\EliminaAluno.cshtml" />
+    <Content Include="Views\Aluno\EditaAluno.cshtml" />
     <None Include="Views\Aluno\ListaAluno.cshtml" />
   </ItemGroup>
   <ItemGroup>
