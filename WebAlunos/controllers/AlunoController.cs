@@ -161,6 +161,10 @@ namespace WebAlunoMVC.Controllers
 
                 return RedirectToAction("ListaAlunos");
             }
+            catch (Exception ex)
+            {
+                return View("Erro", new HandleErrorInfo(ex, "Aluno", "DetalheAluno"));
+            }
         }
-    }
+    }   
 }
