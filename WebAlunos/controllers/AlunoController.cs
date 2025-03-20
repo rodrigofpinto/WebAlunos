@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebAlunosMVC.Models;
+using WebAlunos.Models;
 using System.IO;
 using MySql.Data.MySqlClient;
-using WebAlunos.Models;
 
 namespace WebAlunos.Controllers
 {
     public class AlunoController : Controller
     {
-        public ActionResult ListaAlunos()
+        public ActionResult ListaAluno()
         {
             try
             {
@@ -24,7 +23,6 @@ namespace WebAlunos.Controllers
                     {
                         if (conexao != null)
                         {
-
                             using (MySqlCommand cmd = new MySqlCommand("Select * from alunos", conexao))
                             {
                                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -40,6 +38,7 @@ namespace WebAlunos.Controllers
                                             Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
                                             DataNascimento = reader.GetDateTime("data_de_nascimento"),
                                             AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
+                                            ImagePath = reader.GetString("foto")  // Adiciona a imagem aqui
                                         });
                                     }
                                 }
@@ -52,14 +51,13 @@ namespace WebAlunos.Controllers
                 {
                     return RedirectToAction("Login", "Registo");
                 }
-
             }
             catch (Exception ex)
             {
-                return View("Erro", new HandleErrorInfo(ex, "Aluno", "ListaAlunos"));
+                return View("Erro", new HandleErrorInfo(ex, "Aluno", "ListaAluno"));
             }
-
         }
+
         // GET: Aluno
         public ActionResult CriaAluno()
         {
@@ -88,8 +86,8 @@ namespace WebAlunos.Controllers
                     string ImagemNome = Path.GetFileNameWithoutExtension(aluno.Imagem.FileName);
                     string ImagemExt = Path.GetExtension(aluno.Imagem.FileName);
                     ImagemNome = DateTime.Now.ToString("yyyyMMddHHmmss") + " - " + ImagemNome.Trim() + ImagemExt;
-                    aluno.ImagemPath = @"\Content\Imagens" + ImagemNome;
-                    aluno.Imagem.SaveAs(ControllerContext.HttpContext.Server.MapPath(aluno.ImagemPath));
+                    aluno.ImagePath = @"\Content\Imagens" + ImagemNome;
+                    aluno.Imagem.SaveAs(ControllerContext.HttpContext.Server.MapPath(aluno.ImagePath));
                     //Password do mysql é Admin
                     ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "", "formacao");
 
@@ -106,14 +104,14 @@ namespace WebAlunos.Controllers
                                 cmd.Parameters.AddWithValue("@sexo", aluno.Sexo);
                                 cmd.Parameters.AddWithValue("@dataNascimento", aluno.DataNascimento);
                                 cmd.Parameters.AddWithValue("@ano", aluno.AnoEscolaridade);
-                                cmd.Parameters.AddWithValue("@foto", aluno.ImagemPath);
+                                cmd.Parameters.AddWithValue("@foto", aluno.ImagePath);
 
                                 int nRegistos = cmd.ExecuteNonQuery();
                             }
                         }
                     }
                 }
-                return RedirectToAction("ListaAlunos");
+                return RedirectToAction("ListaAluno");
 
             }
             catch (Exception ex)
@@ -152,7 +150,7 @@ namespace WebAlunos.Controllers
                                         Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
                                         DataNascimento = reader.GetDateTime("data_de_nascimento"),
                                         AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
-                                        ImagemPath = reader.GetString("foto")
+                                        ImagePath = reader.GetString("foto")
                                     };
 
                                     return View(aluno);
@@ -161,7 +159,7 @@ namespace WebAlunos.Controllers
                         }
                     }
                 }
-                return RedirectToAction("ListaAlunos");
+                return RedirectToAction("ListaAluno");
             }
             catch (Exception ex)
             {
@@ -201,7 +199,7 @@ namespace WebAlunos.Controllers
                                         Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
                                         DataNascimento = reader.GetDateTime("data_de_nascimento"),
                                         AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
-                                        ImagemPath = reader.GetString("foto")
+                                        ImagePath = reader.GetString("foto")
                                     };
 
                                     return View(aluno);
@@ -210,7 +208,7 @@ namespace WebAlunos.Controllers
                         }
                     }
                 }
-                return RedirectToAction("ListaAlunos");
+                return RedirectToAction("ListaAluno");
 
             }
             catch (Exception ex)
@@ -236,8 +234,8 @@ namespace WebAlunos.Controllers
                     string ImagemNome = Path.GetFileNameWithoutExtension(aluno.Imagem.FileName);
                     string ImagemExt = Path.GetExtension(aluno.Imagem.FileName);
                     ImagemNome = DateTime.Now.ToString("yyyyMMddHHmmss") + " - " + ImagemNome.Trim() + ImagemExt;
-                    aluno.ImagemPath = @"\Content\Imagens" + ImagemNome;
-                    aluno.Imagem.SaveAs(ControllerContext.HttpContext.Server.MapPath(aluno.ImagemPath));
+                    aluno.ImagePath = @"\Content\Imagens" + ImagemNome;
+                    aluno.Imagem.SaveAs(ControllerContext.HttpContext.Server.MapPath(aluno.ImagePath));
                     img = true;
                 }
                 //Password do mysql é Admin
@@ -265,14 +263,14 @@ namespace WebAlunos.Controllers
                             cmd.Parameters.AddWithValue("@dataNascimento", aluno.DataNascimento);
                             cmd.Parameters.AddWithValue("@ano", aluno.AnoEscolaridade);
                             if (img)
-                                cmd.Parameters.AddWithValue("@foto", aluno.ImagemPath);
+                                cmd.Parameters.AddWithValue("@foto", aluno.ImagePath);
 
                             int nRegistos = cmd.ExecuteNonQuery();
                         }
                     }
                 }
 
-                return RedirectToAction("ListaAlunos");
+                return RedirectToAction("ListaAluno");
 
             }
             catch (Exception ex)
@@ -311,10 +309,10 @@ namespace WebAlunos.Controllers
                                         Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
                                         DataNascimento = reader.GetDateTime("data_de_nascimento"),
                                         AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
-                                        ImagemPath = reader.GetString("foto")
+                                        ImagePath = reader.GetString("foto")
                                     };
 
-                                    TempData["ImagemPath"] = aluno.ImagemPath;
+                                    TempData["ImagemPath"] = aluno.ImagePath;
 
                                     return View(aluno);
                                 }
@@ -322,7 +320,7 @@ namespace WebAlunos.Controllers
                         }
                     }
                 }
-                return RedirectToAction("ListaAlunos");
+                return RedirectToAction("ListaAluno");
             }
             catch (Exception ex)
             {
@@ -356,7 +354,7 @@ namespace WebAlunos.Controllers
                         }
                     }
                 }
-                return RedirectToAction("ListaAlunos");
+                return RedirectToAction("ListaAluno");
             }
             catch (Exception ex)
             {
