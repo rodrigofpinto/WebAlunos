@@ -18,7 +18,7 @@ namespace WebAlunos.Controllers
             {
                 if (Session["Login"] != null)
                 {
-                    ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "", "formacao");
+                    ConexaoBD conn = new ConexaoBD("localhost", 3306, "Manuel", "", "formacao");
                     List<Aluno> lista = new List<Aluno>();
                     using (MySqlConnection conexao = conn.ObterConexao())
                     {

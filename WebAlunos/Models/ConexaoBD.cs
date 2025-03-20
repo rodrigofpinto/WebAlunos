@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MySql.Data.MySqlClient;
 
 namespace WebAlunos.Models
 {
@@ -12,13 +13,36 @@ namespace WebAlunos.Models
         private string bd;
         private string utilizador;
         private string password;
+        private MySqlConnection conn = null;
 
-        private ConexaoBD(string host, int porta, string bd, string utilizador, string password) {
+        public ConexaoBD(string host, int porta, string utilizador, string password, string bd)
+        {
             this.host = host;
             this.porta = porta;
-            this.bd = bd;
             this.utilizador = utilizador;
             this.password = password;
+            this.bd = bd;
+
+        }
+
+        public MySqlConnection ObterConexao()
+        {
+            try
+            {
+                string connectionInfo = "datasource=" + host + ";port=" + porta + ";username=" + utilizador + ";password="
+                    + password + ";database=" + bd + ";SslMode = none";
+
+                conn = new MySqlConnection(connectionInfo);
+                conn.Open();
+                return conn;
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+            }
+
+            return null;
         }
     }
 }

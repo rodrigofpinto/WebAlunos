@@ -36,7 +36,7 @@ namespace WebAlunos.Models
         public int AnoEscolaridade { get; set; }
 
         [Display(Name = "Imagem")]
-        public string ImagemPath { get; set; }
+        public string ImagePath { get; set; }
 
         public HttpPostedFileBase Imagem { get; set; }
     }

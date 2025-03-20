@@ -55,7 +55,7 @@ namespace WebAlunos.Controllers
                 }
             }
             catch (Exception ex) {
-                return View("Erro", new HandleErrorInfo(ex, "Aluno", "ListaAlunos");
+                return View("Erro", new HandleErrorInfo(ex, "Aluno", "ListaAlunos"));
             }
         }
         // GET: Aluno
