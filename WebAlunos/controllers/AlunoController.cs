@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using WebAlunos.Models;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Diagnostics; // Adicione este namespace
+
 
 namespace WebAlunos.Controllers
 {
@@ -19,16 +21,20 @@ namespace WebAlunos.Controllers
                 {
                     ConexaoBD conn = new ConexaoBD("localhost", 3306, "Manuel", "", "formacao");
                     List<Aluno> lista = new List<Aluno>();
+
                     using (MySqlConnection conexao = conn.ObterConexao())
                     {
                         if (conexao != null)
                         {
-                            using (MySqlCommand cmd = new MySqlCommand("Select * from alunos", conexao))
+                            Debug.WriteLine("Conexão estabelecida com sucesso!");
+
+                            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM alunos", conexao))
                             {
                                 using (MySqlDataReader reader = cmd.ExecuteReader())
                                 {
                                     while (reader.Read())
                                     {
+                                        Debug.WriteLine($"Aluno encontrado: {reader["primeiro_nome"]}");
                                         lista.Add(new Aluno()
                                         {
                                             NAluno = reader.GetInt32("id_aluno"),
@@ -38,11 +44,15 @@ namespace WebAlunos.Controllers
                                             Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
                                             DataNascimento = reader.GetDateTime("data_de_nascimento"),
                                             AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
-                                            ImagePath = reader.GetString("foto")  // Adiciona a imagem aqui
+                                            ImagePath = reader["foto"] != DBNull.Value ? reader.GetString("foto") : null
                                         });
                                     }
                                 }
                             }
+                        }
+                        else
+                        {
+                            Debug.WriteLine("Erro: conexão com o banco de dados não foi estabelecida.");
                         }
                     }
                     return View(lista);
@@ -54,6 +64,7 @@ namespace WebAlunos.Controllers
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"Erro: {ex.Message}");
                 return View("Erro", new HandleErrorInfo(ex, "Aluno", "ListaAluno"));
             }
         }

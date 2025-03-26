@@ -1,74 +1,72 @@
 @model WebAlunos.Models.Aluno
 
 @{
-    ViewBag.Title = "DetalheAluno";
+    ViewBag.Title = "Detalhes do Aluno";
 }
 
-<h2>DetalheAluno</h2>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
 
-<div>
-    <h4>Aluno</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NAluno)
-        </dt>
+    <!-- Bootstrap CSS via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
 
-        <dd>
-            @Html.DisplayFor(model => model.NAluno)
-        </dd>
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>Detalhes do Aluno</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <dl class="row">
+                            <dt class="col-sm-4 fw-bold">Número do Aluno</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.NAluno)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrimeiroNome)
-        </dt>
+                            <dt class="col-sm-4 fw-bold">Primeiro Nome</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.PrimeiroNome)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrimeiroNome)
-        </dd>
+                            <dt class="col-sm-4 fw-bold">Último Nome</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.UltimoNome)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UltimoNome)
-        </dt>
+                            <dt class="col-sm-4 fw-bold">Morada</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.Morada)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UltimoNome)
-        </dd>
+                            <dt class="col-sm-4 fw-bold">Data de Nascimento</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.DataNascimento)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Morada)
-        </dt>
+                            <dt class="col-sm-4 fw-bold">Ano Escolaridade</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.AnoEscolaridade)</dd>
+                        </dl>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Morada)
-        </dd>
+                    <div class="col-md-4 text-center">
+                        @if (!string.IsNullOrEmpty(Model.ImagePath))
+                        {
+                            <img src="@Url.Content(Model.ImagePath)" class="img-fluid rounded border shadow-sm" alt="Foto do aluno" style="max-width: 100%;">
+                        }
+                        else
+                        {
+                            <p class="text-muted fst-italic">Sem imagem disponível</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.NAluno }, new { @class = "btn btn-warning me-2" })
+                @Html.ActionLink("Voltar à Lista", "ListaAluno", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataNascimento)
-        </dt>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataNascimento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AnoEscolaridade)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AnoEscolaridade)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImagePath)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImagePath)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</body>
+</html>

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebAlunos.Models;
-using WebAlunos.Models;
 
 namespace WebAlunos.Controllers
 {

@@ -1,69 +1,77 @@
-﻿﻿@model IEnumerable<WebAlunos.Models.Aluno>
+﻿@model IEnumerable<WebAlunos.Models.Aluno>
 
 @{
-    ViewBag.Title = "ListaAluno";
+    ViewBag.Title = "Lista de Alunos";
+
 }
 
-<h2>ListaAluno</h2>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
 
-<p>
-    @Html.ActionLink("Create New", "CriaAluno")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NAluno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimeiroNome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UltimoNome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Morada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataNascimento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoEscolaridade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImagePath)
-        </th>
-        <th></th>
-    </tr>
+    <!-- Bootstrap CSS via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NAluno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimeiroNome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UltimoNome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Morada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataNascimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoEscolaridade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImagePath)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="text-primary">Lista de Alunos</h2>
+            @Html.ActionLink("Adicionar Novo", "CriaAluno", null, new { @class = "btn btn-success" })
+        </div>
 
-</table>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover shadow-sm">
+                <thead class="table-dark">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.NAluno)</th>
+                        <th>@Html.DisplayNameFor(model => model.PrimeiroNome)</th>
+                        <th>@Html.DisplayNameFor(model => model.UltimoNome)</th>
+                        <th>@Html.DisplayNameFor(model => model.Morada)</th>
+                        <th>@Html.DisplayNameFor(model => model.DataNascimento)</th>
+                        <th>@Html.DisplayNameFor(model => model.AnoEscolaridade)</th>
+                        <th>@Html.DisplayNameFor(model => model.ImagePath)</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.NAluno)</td>
+                            <td>@Html.DisplayFor(modelItem => item.PrimeiroNome)</td>
+                            <td>@Html.DisplayFor(modelItem => item.UltimoNome)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Morada)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DataNascimento)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AnoEscolaridade)</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.ImagePath))
+                                {
+                                    <img src="@item.ImagePath" alt="Imagem do Aluno" class="img-thumbnail" style="max-width: 80px;">
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Sem imagem</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                @Html.ActionLink("✏️ Editar", "Edit", new { id = item.NAluno }, new { @class = "btn btn-warning btn-sm" })
+                                @Html.ActionLink("📄 Detalhes", "Details", new { id = item.NAluno }, new { @class = "btn btn-info btn-sm text-white" })
+                                @Html.ActionLink("🗑️ Eliminar", "Delete", new { id = item.NAluno }, new { @class = "btn btn-danger btn-sm" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
