@@ -216,6 +216,7 @@
     <Content Include="Views\Registo\Login.cshtml" />
     <Content Include="Views\Registo\Registo.cshtml" />
     <Content Include="Views\Aluno\DetalheAluno.cshtml" />
+    <Content Include="Views\Shared\Erro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

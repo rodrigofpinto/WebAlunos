@@ -19,7 +19,7 @@ namespace WebAlunos.Controllers
             {
                 if (Session["Login"] != null)
                 {
-                    ConexaoBD conn = new ConexaoBD("localhost", 3306, "Manuel", "", "formacao");
+                    ConexaoBD conn = new ConexaoBD("localhost", 3306, "root", "", "formacao");
                     List<Aluno> lista = new List<Aluno>();
 
                     using (MySqlConnection conexao = conn.ObterConexao())
@@ -34,21 +34,23 @@ namespace WebAlunos.Controllers
                                 {
                                     while (reader.Read())
                                     {
-                                        Debug.WriteLine($"Aluno encontrado: {reader["primeiro_nome"]}");
+                                        Debug.WriteLine($"Aluno encontrado: {reader["primeiroNome"]}");
                                         lista.Add(new Aluno()
                                         {
-                                            NAluno = reader.GetInt32("id_aluno"),
-                                            PrimeiroNome = reader.GetString("primeiro_nome"),
-                                            UltimoNome = reader.GetString("ultimo_nome"),
+                                            NAluno = reader.GetInt32("id"),
+                                            PrimeiroNome = reader.GetString("primeiroNome"),
+                                            UltimoNome = reader.GetString("ultimoNome"),
                                             Morada = reader.GetString("morada"),
                                             Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
-                                            DataNascimento = reader.GetDateTime("data_de_nascimento"),
-                                            AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
+                                            DataNascimento = reader.GetDateTime("dataNascimento"),
+                                            AnoEscolaridade = reader.GetInt16("ano"),
                                             ImagePath = reader["foto"] != DBNull.Value ? reader.GetString("foto") : null
                                         });
                                     }
                                 }
                             }
+                            Debug.WriteLine("Total de alunos: " + lista.Count);
+                            return View(lista);
                         }
                         else
                         {
@@ -145,7 +147,7 @@ namespace WebAlunos.Controllers
                     if (conexao != null)
                     {
 
-                        using (MySqlCommand cmd = new MySqlCommand("Select * from alunos where id_aluno=@idaluno", conexao))
+                        using (MySqlCommand cmd = new MySqlCommand("Select * from alunos where id=@idaluno", conexao))
                         {
                             cmd.Parameters.AddWithValue("@idaluno", id);
                             using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -154,13 +156,13 @@ namespace WebAlunos.Controllers
                                 {
                                     aluno = new Aluno()
                                     {
-                                        NAluno = reader.GetInt32("id_aluno"),
-                                        PrimeiroNome = reader.GetString("primeiro_nome"),
-                                        UltimoNome = reader.GetString("ultimo_nome"),
+                                        NAluno = reader.GetInt32("id"),
+                                        PrimeiroNome = reader.GetString("primeiroNome"),
+                                        UltimoNome = reader.GetString("ultimoNome"),
                                         Morada = reader.GetString("morada"),
                                         Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
-                                        DataNascimento = reader.GetDateTime("data_de_nascimento"),
-                                        AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
+                                        DataNascimento = reader.GetDateTime("dataNascimento"),
+                                        AnoEscolaridade = reader.GetInt16("ano"),
                                         ImagePath = reader.GetString("foto")
                                     };
 
@@ -194,7 +196,7 @@ namespace WebAlunos.Controllers
                     if (conexao != null)
                     {
 
-                        using (MySqlCommand cmd = new MySqlCommand("Select * from alunos where id_aluno=@idaluno", conexao))
+                        using (MySqlCommand cmd = new MySqlCommand("Select * from alunos where id=@idaluno", conexao))
                         {
                             cmd.Parameters.AddWithValue("@idaluno", id);
                             using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -203,13 +205,13 @@ namespace WebAlunos.Controllers
                                 {
                                     aluno = new Aluno()
                                     {
-                                        NAluno = reader.GetInt32("id_aluno"),
-                                        PrimeiroNome = reader.GetString("primeiro_nome"),
-                                        UltimoNome = reader.GetString("ultimo_nome"),
+                                        NAluno = reader.GetInt32("id"),
+                                        PrimeiroNome = reader.GetString("primeiroNome"),
+                                        UltimoNome = reader.GetString("ultimoNome"),
                                         Morada = reader.GetString("morada"),
                                         Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
-                                        DataNascimento = reader.GetDateTime("data_de_nascimento"),
-                                        AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
+                                        DataNascimento = reader.GetDateTime("dataNascimento"),
+                                        AnoEscolaridade = reader.GetInt16("ano"),
                                         ImagePath = reader.GetString("foto")
                                     };
 
@@ -257,13 +259,13 @@ namespace WebAlunos.Controllers
                     if (conexao != null)
                     {
                         string strFoto = (img) ? ",foto=@foto" : "";
-                        string stm = "update alunos set primeiro_nome=@primeiroNome, " +
-                            "ultimo_nome=@ultimoNome, " +
+                        string stm = "update alunos set primeiroNome=@primeiroNome, " +
+                            "ultimoNome=@ultimoNome, " +
                             "morada=@morada, " +
                             "sexo=@sexo, " +
-                            "data_de_nascimento=@dataNascimento, " +
-                            "ano_de_escolaridade=@ano " +
-                            strFoto + " where id_aluno=@idaluno";
+                            "dataNascimento=@dataNascimento, " +
+                            "ano=@ano " +
+                            strFoto + " where id=@idaluno";
                         using (MySqlCommand cmd = new MySqlCommand(stm, conexao))
                         {
                             cmd.Parameters.AddWithValue("@idaluno", aluno.NAluno);
@@ -290,6 +292,7 @@ namespace WebAlunos.Controllers
             }
         }
         //Get
+        // Método para carregar os detalhes do aluno e confirmar a eliminação
         public ActionResult EliminaAluno(int? id)
         {
             try
@@ -303,8 +306,7 @@ namespace WebAlunos.Controllers
                 {
                     if (conexao != null)
                     {
-
-                        using (MySqlCommand cmd = new MySqlCommand("Select * from alunos where id_aluno=@idaluno", conexao))
+                        using (MySqlCommand cmd = new MySqlCommand("Select * from alunos where id=@idaluno", conexao))
                         {
                             cmd.Parameters.AddWithValue("@idaluno", id);
                             using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -313,13 +315,13 @@ namespace WebAlunos.Controllers
                                 {
                                     aluno = new Aluno()
                                     {
-                                        NAluno = reader.GetInt32("id_aluno"),
-                                        PrimeiroNome = reader.GetString("primeiro_nome"),
-                                        UltimoNome = reader.GetString("ultimo_nome"),
+                                        NAluno = reader.GetInt32("id"),
+                                        PrimeiroNome = reader.GetString("primeiroNome"),
+                                        UltimoNome = reader.GetString("ultimoNome"),
                                         Morada = reader.GetString("morada"),
                                         Sexo = reader.GetString("sexo") == "Masculino" ? Sexo.Masculino : Sexo.Feminino,
-                                        DataNascimento = reader.GetDateTime("data_de_nascimento"),
-                                        AnoEscolaridade = reader.GetInt16("ano_de_escolaridade"),
+                                        DataNascimento = reader.GetDateTime("dataNascimento"),
+                                        AnoEscolaridade = reader.GetInt16("ano"),
                                         ImagePath = reader.GetString("foto")
                                     };
 
@@ -338,6 +340,7 @@ namespace WebAlunos.Controllers
                 return View("Erro", new HandleErrorInfo(ex, "Aluno", "EliminaAluno"));
             }
         }
+
         [HttpPost, ActionName("EliminaAluno")]
         public ActionResult EliminaAlunoConfirmacao(int? id)
         {
@@ -351,8 +354,7 @@ namespace WebAlunos.Controllers
                 {
                     if (conexao != null)
                     {
-
-                        string stm = "delete from alunos where id_aluno=@idaluno";
+                        string stm = "delete from alunos where id=@idaluno";
                         using (MySqlCommand cmd = new MySqlCommand(stm, conexao))
                         {
                             cmd.Parameters.AddWithValue("@idaluno", id);
@@ -360,6 +362,7 @@ namespace WebAlunos.Controllers
                             int nRegistos = cmd.ExecuteNonQuery();
                             if (nRegistos == 1)
                             {
+                                // Apagar a imagem se necessário
                                 new FileInfo(ControllerContext.HttpContext.Server.MapPath(TempData["ImagemPath"].ToString())).Delete();
                             }
                         }

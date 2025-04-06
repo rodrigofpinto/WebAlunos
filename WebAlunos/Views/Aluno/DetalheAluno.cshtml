@@ -25,13 +25,13 @@
                 <div class="row">
                     <div class="col-md-8">
                         <dl class="row">
-                            <dt class="col-sm-4 fw-bold">Número do Aluno</dt>
+                            <dt class="col-sm-4 fw-bold">Numero do Aluno</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => model.NAluno)</dd>
 
                             <dt class="col-sm-4 fw-bold">Primeiro Nome</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => model.PrimeiroNome)</dd>
 
-                            <dt class="col-sm-4 fw-bold">Último Nome</dt>
+                            <dt class="col-sm-4 fw-bold">Ultimo Nome</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => model.UltimoNome)</dd>
 
                             <dt class="col-sm-4 fw-bold">Morada</dt>
@@ -52,14 +52,14 @@
                         }
                         else
                         {
-                            <p class="text-muted fst-italic">Sem imagem disponível</p>
+                            <p class="text-muted fst-italic">Sem imagem disponï¿½vel</p>
                         }
                     </div>
                 </div>
             </div>
             <div class="card-footer text-center">
-                @Html.ActionLink("Editar", "Edit", new { id = Model.NAluno }, new { @class = "btn btn-warning me-2" })
-                @Html.ActionLink("Voltar à Lista", "ListaAluno", null, new { @class = "btn btn-secondary" })
+                @Html.ActionLink("Editar", "EditaAluno", new { id = Model.NAluno }, new { @class = "btn btn-warning me-2" })
+                @Html.ActionLink("Voltar a Lista", "ListaAluno", null, new { @class = "btn btn-secondary" })
             </div>
         </div>
     </div>

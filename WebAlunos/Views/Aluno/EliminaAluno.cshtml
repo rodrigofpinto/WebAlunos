@@ -1,7 +1,7 @@
 ﻿@model WebAlunos.Models.Aluno
 
 @{
-    ViewBag.Title = "Criar Aluno";
+    ViewBag.Title = "Eliminar Aluno";
 }
 
 <!DOCTYPE html>
@@ -18,74 +18,43 @@
 
     <div class="container mt-5">
         <div class="card shadow-lg">
-            <div class="card-header bg-success text-white text-center">
-                <h3>Criar Novo Aluno</h3>
+            <div class="card-header bg-danger text-white text-center">
+                <h3>Eliminar Aluno</h3>
             </div>
             <div class="card-body">
-                @using (Html.BeginForm("CriaAluno", "Aluno", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    @Html.AntiForgeryToken()
+                <h4>Tem a certeza que quer eliminar o aluno?</h4>
 
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label fw-bold">Número do Aluno</label>
-                        <div class="col-sm-9">
-                            @Html.EditorFor(model => model.NAluno, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NAluno, "", new { @class = "text-danger" })
-                        </div>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label fw-bold">Número do Aluno</label>
+                    <div class="col-sm-9">
+                        <p>@Model.NAluno</p>
                     </div>
+                </div>
 
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label fw-bold">Primeiro Nome</label>
-                        <div class="col-sm-9">
-                            @Html.EditorFor(model => model.PrimeiroNome, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.PrimeiroNome, "", new { @class = "text-danger" })
-                        </div>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label fw-bold">Primeiro Nome</label>
+                    <div class="col-sm-9">
+                        <p>@Model.PrimeiroNome</p>
                     </div>
+                </div>
 
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label fw-bold">Último Nome</label>
-                        <div class="col-sm-9">
-                            @Html.EditorFor(model => model.UltimoNome, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.UltimoNome, "", new { @class = "text-danger" })
-                        </div>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label fw-bold">Último Nome</label>
+                    <div class="col-sm-9">
+                        <p>@Model.UltimoNome</p>
                     </div>
+                </div>
 
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label fw-bold">Morada</label>
-                        <div class="col-sm-9">
-                            @Html.EditorFor(model => model.Morada, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Morada, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                <div class="card-footer text-center">
+                    @using (Html.BeginForm("EliminaAluno", "Aluno", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@Model.NAluno" />
+                        <button type="submit" class="btn btn-danger me-2">Confirmar Eliminação</button>
+                    }
 
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label fw-bold">Data de Nascimento</label>
-                        <div class="col-sm-9">
-                            @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label fw-bold">Ano Escolaridade</label>
-                        <div class="col-sm-9">
-                            @Html.EditorFor(model => model.AnoEscolaridade, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.AnoEscolaridade, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label fw-bold">Foto do Aluno</label>
-                        <div class="col-sm-9">
-                            <input type="file" name="Imagem" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-success me-2">Criar</button>
-                        @Html.ActionLink("Voltar à Lista", "Index", null, new { @class = "btn btn-secondary" })
-                    </div>
-                }
+                    @Html.ActionLink("Voltar à Lista", "ListaAluno", null, new { @class = "btn btn-secondary" })
+                </div>
             </div>
         </div>
     </div>

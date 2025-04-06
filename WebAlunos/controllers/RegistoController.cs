@@ -27,7 +27,22 @@ namespace WebAlunos.Controllers
                 {
                     if (conexao != null)
                     {
-                        string stm = "insert into utilizadores () values(0,@email,MD5(@password))";
+                        // Verificar se o email já existe
+                        string verificarEmail = "SELECT COUNT(*) FROM utilizadores WHERE email = @email";
+                        using (MySqlCommand verificarCmd = new MySqlCommand(verificarEmail, conexao))
+                        {
+                            verificarCmd.Parameters.AddWithValue("@email", utilizador.Email);
+                            int count = Convert.ToInt32(verificarCmd.ExecuteScalar());
+
+                            if (count > 0)
+                            {
+                                ModelState.AddModelError("Email", "Email indisponível");
+                                return View(utilizador); // volta à view com a mensagem de erro
+                            }
+                        }
+
+                        // Inserir novo utilizador
+                        string stm = "INSERT INTO utilizadores VALUES (0, @email, MD5(@password))";
                         using (MySqlCommand cmd = new MySqlCommand(stm, conexao))
                         {
                             cmd.Parameters.AddWithValue("@email", utilizador.Email);
@@ -41,8 +56,10 @@ namespace WebAlunos.Controllers
                     }
                 }
             }
-            return RedirectToAction("Registo");
+
+            return View(utilizador); 
         }
+
         //GET
         public ActionResult Login()
         {
