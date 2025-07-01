@@ -1,0 +1,72 @@
+@model WebAlunos.Models.Aluno
+
+@{
+    ViewBag.Title = "Detalhes do Aluno";
+}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap CSS via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>Detalhes do Aluno</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <dl class="row">
+                            <dt class="col-sm-4 fw-bold">Numero do Aluno</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.NAluno)</dd>
+
+                            <dt class="col-sm-4 fw-bold">Primeiro Nome</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.PrimeiroNome)</dd>
+
+                            <dt class="col-sm-4 fw-bold">Ultimo Nome</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.UltimoNome)</dd>
+
+                            <dt class="col-sm-4 fw-bold">Morada</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.Morada)</dd>
+
+                            <dt class="col-sm-4 fw-bold">Data de Nascimento</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.DataNascimento)</dd>
+
+                            <dt class="col-sm-4 fw-bold">Ano Escolaridade</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.AnoEscolaridade)</dd>
+                        </dl>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        @if (!string.IsNullOrEmpty(Model.ImagePath))
+                        {
+                            <img src="@Url.Content(Model.ImagePath)" class="img-fluid rounded border shadow-sm" alt="Foto do aluno" style="max-width: 100%;">
+                        }
+                        else
+                        {
+                            <p class="text-muted fst-italic">Sem imagem dispon�vel</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                @Html.ActionLink("Editar", "EditaAluno", new { id = Model.NAluno }, new { @class = "btn btn-warning me-2" })
+                @Html.ActionLink("Voltar a Lista", "ListaAluno", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
